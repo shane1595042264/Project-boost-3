@@ -103,7 +103,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5696866054015837647}
   - component: {fileID: 2142211777}
-  - component: {fileID: 2142211778}
   - component: {fileID: 2142211779}
   - component: {fileID: 4766647671707201603}
   m_Layer: 0
@@ -142,7 +141,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fd1616202c7d07245af6a31bee6799b6, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.47
   m_Pitch: 0.6
@@ -228,18 +227,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2142211778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2469598162680714614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58d8054157747349907714b167ce654, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &2142211779
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -268,6 +255,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58d8054157747349907714b167ce654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rcsThrust: 100
+  mainThrust: 100
+  mainEngine: {fileID: 8300000, guid: 98320b7ff8e14784686173b0aa3b3a49, type: 3}
+  success: {fileID: 8300000, guid: e6152836d14a58c4998866ed24eabe90, type: 3}
+  death: {fileID: 8300000, guid: 2bf3a8f385a06ff42b82185a9dc0768c, type: 3}
 --- !u!1 &2765870579249530940
 GameObject:
   m_ObjectHideFlags: 0
