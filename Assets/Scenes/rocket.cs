@@ -6,9 +6,15 @@ public class rocket : MonoBehaviour
 {
      [SerializeField]float rcsThrust = 100f;
     [SerializeField]float mainThrust = 100f;
+    [SerializeField] float levelLoadDelay =  2f;
+
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip success;
     [SerializeField] AudioClip death;
+
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem deathParticles;
         Rigidbody rigidBody;
     AudioSource audioSource;
    
@@ -56,14 +62,16 @@ private void StartSuccessSequence()
         state = State.Transcending;
         audioSource.Stop();
         audioSource.PlayOneShot(success);
-        Invoke("LoadNextScene", 1f);
+        successParticles.Play();
+        Invoke("LoadNextScene", levelLoadDelay);
     }
     private void StartDeathSequence()
     {
         state = State.Dying;
         audioSource.Stop();
         audioSource.PlayOneShot(death);
-        Invoke("LoadFirstLevel", 1f);
+        deathParticles.Play();
+        Invoke("LoadFirstLevel", levelLoadDelay);
     }
 
     
@@ -106,17 +114,18 @@ private void LoadFirstLevel()
         else
         {
             audioSource.Stop();
+            mainEngineParticles.Stop();
         }
     }
 
     private void ApplyThrust()
     {
-        rigidBody.AddRelativeForce(Vector3.up * mainThrust);
+        rigidBody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
         if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(mainEngine);
         }
 
-       
+       mainEngineParticles.Play();
     }
 }
