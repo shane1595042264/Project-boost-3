@@ -89,8 +89,13 @@ private void StartSuccessSequence()
     
 
     private void LoadNextScene()
-    {
-        SceneManager.LoadScene(1);
+    {   
+        int currentScreenIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentScreenIndex + 1;
+        if(nextSceneIndex == SceneManager.sceneCountInBuildSettings){
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
 private void LoadFirstLevel()
