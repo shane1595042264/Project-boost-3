@@ -100,7 +100,9 @@ private void StartSuccessSequence()
 
 private void LoadFirstLevel()
     {
-        SceneManager.LoadScene(0);
+         int currentScreenIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        SceneManager.LoadScene(currentScreenIndex);
     }
 
     private void RespondToRotateInput()
